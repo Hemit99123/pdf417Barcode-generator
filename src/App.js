@@ -1,12 +1,13 @@
 import PDF417 from "pdf417-generator";
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
+import { Button, TextField } from '@material-ui/core';
 
-const BarcodeCanvas = styled.canvas`
+const Barcode = styled.canvas`
   width: 100%;
 `;
 
-const CanvasContainer = styled.div`
+const CanvasContainer1 = styled.div`
   width: 200px;
   border-radius: 3px;
   padding: 10px;
@@ -35,12 +36,11 @@ export default function App() {
   return (
     <div className="App">
       <h1>{value}</h1>
-      <input placeholder="Enter Text Here" type='text' onChange={e => setValue(e.target.value)}/>
-
-      <CanvasContainer>
-        <BarcodeCanvas ref={canvas} id="canvas"/>
-      </CanvasContainer>
-      <button onClick={download}>download</button>
+     
+      <TextField placeholder="Enter what you wanna say here" type='text' multiline color="primary" onChange={e => setValue(e.target.value)}/>
+        <CanvasContainer1><Barcode ref={canvas} id="canvas"/></CanvasContainer1>
+      <Button color="primary"  variant="contained"  onClick={download}>download</Button>
     </div>
   );
 }
+
