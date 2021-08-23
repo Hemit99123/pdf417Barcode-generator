@@ -19,9 +19,9 @@ export default function App() {
 
   function download(){
     var canvas = document.getElementById("canvas");
-    var url = canvas.toDataURL("image/jpeg");
+    var url = canvas.toDataURL("image/png");
     var link = document.createElement('a');
-    link.download = 'barcode-hemit.jpeg';
+    link.download = 'barcode-hemit.png';
     link.href = url;
     link.click();
   }
